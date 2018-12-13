@@ -10,16 +10,16 @@ public:
 		if (divisor == 0 || (dividend == INT_MIN && divisor == -1))
 			return INT_MAX;
 		int Sign = (dividend > 0) ^ (divisor > 0) ? -1 : 1;
-		long LDividend = abs((long)dividend);
-		long LDivisor = abs((long)divisor);
+		long long LDividend = abs((long long)dividend);
+		long long LDivisor = abs((long long)divisor);
 		if (LDivisor == 1)
 			return divisor > 0 ? dividend : -dividend;
-		
+
 		int Res = 0;
 		while (LDividend >= LDivisor)
 		{
-			int Temp1 = LDividend;
-			int Temp2 = LDivisor;
+			long long Temp1 = LDividend;
+			long long Temp2 = LDivisor;
 			int Count = 1;
 			while (Temp1 >= Temp2 << 1)
 			{
