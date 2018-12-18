@@ -8,6 +8,7 @@ using namespace std;
 
 class Solution {
 public:
+	//My answer
 	vector<int> searchRange(vector<int>& nums, int target) {
 		vector<int> TargetIndex = { -1, -1 };
 		if (nums.size() == 0) return TargetIndex;
@@ -48,6 +49,37 @@ public:
 		else if (vNums[Mid] > vTarget) binary_find(vNums, vLow, Mid - 1, vTarget, vioTargetIndex);
 		else binary_find(vNums, Mid + 1, vHigh, vTarget, vioTargetIndex);
 	}
+
+	// other answer
+	/*vector<int> searchRange(vector<int>& nums, int target) {
+		int lo = 0;
+		int hi = nums.size();
+		while (lo < hi) {
+			int mid = lo + (hi - lo) / 2;
+			if (nums[mid] < target) {
+				lo = mid + 1;
+			}
+			else {
+				hi = mid;
+			}
+		}
+		if (lo == nums.size() || nums[lo] != target) {
+			return{ -1, -1 };
+		}
+		int left = lo;
+		hi = nums.size();
+		while (lo < hi) {
+			int mid = lo + (hi - lo) / 2;
+			if (nums[mid] <= target) {
+				lo = mid + 1;
+			}
+			else {
+				hi = mid;
+			}
+		}
+		int right = lo - 1;
+		return{ left, right };*/
+
 };
 
 void trimLeftTrailingSpaces(string &input) {
