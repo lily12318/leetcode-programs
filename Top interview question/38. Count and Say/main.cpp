@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <assert.h>
 
 using namespace std;
 
@@ -37,10 +38,31 @@ public:
 		}
 	}*/
 
-	//My second Answer
+	//My second Answer according to a better answer
 	string countAndSay(int n)
 	{
+		assert(n >= 1);
+		string s = "1";
+		for (int i = 1; i < n; ++i)
+		{
+			string Output = "";
+			char CurChar = s[0];
+			int Count = 1;
+			for (int k = 1; k < s.size()+1; ++k)
+			{
+				if (s[k] == CurChar) Count++;
+				else
+				{
+					Output += '0'+Count;
+					Output += CurChar;
 
+					CurChar = s[k];
+					Count = 1;
+				}
+			}
+			s = Output;
+		}
+		return s;
 	}
 };
 
