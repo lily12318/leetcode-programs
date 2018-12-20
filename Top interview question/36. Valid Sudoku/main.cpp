@@ -6,14 +6,15 @@ using namespace std;
 
 class Solution {
 public:
-	bool isValidSudoku(vector<vector<char>>& board) {
+	//My answer
+	/*bool isValidSudoku(vector<vector<char>>& board) {
 		for (int row = 0; row < board.size(); ++row)
 		{
 			set<char> RowSet;
 			for (int col = 0; col < board[0].size(); ++col)
 			{
 				char Temp = board[row][col];
-				if (Temp == '.')break;
+				if (Temp == '.')continue;;
 				if (RowSet.find(Temp) == RowSet.end()) RowSet.insert(Temp);
 				else return false;
 			}
@@ -26,31 +27,50 @@ public:
 			for (int row = 0; row < board.size(); ++row)
 			{
 				char Temp = board[row][col];
-				if (Temp == '.')break;
+				if (Temp == '.')continue;;
 				if (ColSet.find(Temp) == ColSet.end()) ColSet.insert(Temp);
 				else return false;
 			}
 		}
 
-		for (int row = 0; row < board.size(); ++row)
+		for (int row = 0; row < board.size(); row=row+3)
 		{
-			set<char> SubBoardSet;
-			for (int col = 0; col < board[0].size(); ++col)
+			for (int col = 0; col < board[0].size(); col=col+3)
 			{
-				int RowCount = 0;
-				while (++RowCount <= 3)
+				set<char> SubBoardSet;
+				int TempRow = row;
+				for (int RowCount = 0; RowCount++ < 3; ++TempRow)
 				{
-					int ColCount = 0;
-					while (++ColCount <= 3)
+					int TempCol = col;
+					for (int ColCount = 0; ColCount++ < 3; ++TempCol)
 					{
-						char Temp = board[row][col];
-						if (Temp == '.')break;
+						char Temp = board[TempRow][TempCol];
+						if (Temp == '.')continue;;
 						if (SubBoardSet.find(Temp) == SubBoardSet.end()) SubBoardSet.insert(Temp);
 						else return false;
-						++col;
 					}
-					++row;
 				}
+			}
+		}
+		return true;
+	}*/
+	//other better answer
+	bool isValidSudoku(vector<vector<char>>& board)
+	{
+		//9*9 board
+		bool RowNums[9][9] = { false };
+		bool ColNums[9][9] = { false };
+		bool BoxNums[9][9] = { false };
+
+		for (int row = 0; row < 9; ++row)
+		{
+			for (int col = 0; col < 9; ++col)
+			{
+				if (board[row][col] == '.')continue;
+				int TempNum = board[row][col] - '1';
+				int BoxIdx = row / 3 * 3 + col / 3;
+				if (RowNums[row][TempNum] || ColNums[col][TempNum] || BoxNums[BoxIdx][TempNum]) return false;
+				RowNums[row][TempNum] = ColNums[col][TempNum] = BoxNums[BoxIdx][TempNum] = true;
 			}
 		}
 		return true;
