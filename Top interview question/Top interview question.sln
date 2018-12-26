@@ -51,6 +51,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "38. Count and Say", "38. Co
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "46. Permutations", "46. Permutations\46. Permutations.vcxproj", "{AA0AF8CA-123C-42FE-B88B-35B50A897BBE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "48. Rotate Image", "48. Rotate Image\48. Rotate Image.vcxproj", "{4751D523-FFBA-4DE2-A418-26FE55898373}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "49. Group Anagrams", "49. Group Anagrams\49. Group Anagrams.vcxproj", "{26414977-AC8B-4023-92F3-EAE6E170665A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -251,6 +255,22 @@ Global
 		{AA0AF8CA-123C-42FE-B88B-35B50A897BBE}.Release|x64.Build.0 = Release|x64
 		{AA0AF8CA-123C-42FE-B88B-35B50A897BBE}.Release|x86.ActiveCfg = Release|Win32
 		{AA0AF8CA-123C-42FE-B88B-35B50A897BBE}.Release|x86.Build.0 = Release|Win32
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Debug|x64.ActiveCfg = Debug|x64
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Debug|x64.Build.0 = Debug|x64
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Debug|x86.ActiveCfg = Debug|Win32
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Debug|x86.Build.0 = Debug|Win32
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Release|x64.ActiveCfg = Release|x64
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Release|x64.Build.0 = Release|x64
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Release|x86.ActiveCfg = Release|Win32
+		{4751D523-FFBA-4DE2-A418-26FE55898373}.Release|x86.Build.0 = Release|Win32
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Debug|x64.ActiveCfg = Debug|x64
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Debug|x64.Build.0 = Debug|x64
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Debug|x86.ActiveCfg = Debug|Win32
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Debug|x86.Build.0 = Debug|Win32
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Release|x64.ActiveCfg = Release|x64
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Release|x64.Build.0 = Release|x64
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Release|x86.ActiveCfg = Release|Win32
+		{26414977-AC8B-4023-92F3-EAE6E170665A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
