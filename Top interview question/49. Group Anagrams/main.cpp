@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
@@ -9,30 +10,27 @@ using namespace std;
 class Solution {
 public:
 	vector<vector<string>> groupAnagrams(vector<string>& strs) {
-		vector<string> SortTempSet;
-		vector<vector<string>> Output;
-		for (int i = 0; i < strs.size(); ++i)
+		unordered_map<string, vector<string>> Str_map;
+		vector<vector<string>> Result;
+		for (size_t i = 0; i < strs.size(); ++i)
 		{
-			string Temp = strs[i];
-			sort(Temp.begin(), Temp.end());
-			bool IsFindFlag = false;
-			for (int k = 0; k < SortTempSet.size(); ++k)
+			string SortStr = strs[i];
+			sort(SortStr.begin(), SortStr.end());
+			auto iter = Str_map.find(SortStr);
+			if (iter == Str_map.end())
 			{
-				if (Temp == SortTempSet[k])
-				{
-					IsFindFlag = true;
-					Output[k].push_back(strs[i]);
-				}
+				vector<string> Temp;
+				Temp.push_back(strs[i]);
+				Str_map[SortStr] = Temp;
 			}
-			if (!IsFindFlag)
-			{
-				vector<string> NewElement = { strs[i] };
-				SortTempSet.push_back(Temp);
-				Output.push_back(NewElement);
-			}
-
+			else
+				iter->second.push_back(strs[i]);				
 		}
-		return Output;
+		for (auto iter = Str_map.begin(); iter != Str_map.end(); iter++)
+		{
+			Result.push_back(iter->second);
+		}
+		return Result;
 	}
 };
 
@@ -45,7 +43,7 @@ void main()
 	{
 		for (int k = 0; k < Output[i].size(); ++k)
 		{
-			cout << Output[i][k];
+			cout << Output[i][k] << " ";
 		}
 		cout << endl;
 	}
