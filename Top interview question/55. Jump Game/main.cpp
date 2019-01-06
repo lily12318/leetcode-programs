@@ -1,13 +1,23 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <sstream>
 #include <algorithm>
+#include <math.h>
 
 using namespace std;
 
 class Solution {
 public:
-	bool calJump(vector<int>& nums){
-
+	bool canJump(vector<int>& nums){
+		if (nums.empty()) return true;
+		int LastPos = nums.size() - 1;
+		for (int i = LastPos; i >= 0; --i)
+		{
+			if (i + nums[i] >= LastPos)
+				LastPos = i;
+		}
+		return LastPos == 0;
 	}
 };
 
